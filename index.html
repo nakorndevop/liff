@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  </head>
+
+  <body>
+
+    <h1 id='app'>ello</h1>
+    <h1 id='profile'></h1>
+    <img id='profileImage'></img>
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js';
+      import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-analytics.js';
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: 'AIzaSyDrmQ05rYX83cze_4e8x3CkQutA6gQJ1kA',
+        authDomain: 'liff-4acbf.firebaseapp.com',
+        projectId: 'liff-4acbf',
+        storageBucket: 'liff-4acbf.appspot.com',
+        messagingSenderId: '623505442727',
+        appId: '1:623505442727:web:5bb2ce8ea8f567944c1882',
+        measurementId: 'G-CWNX41DYY2',
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
+  </body>
+</html>
