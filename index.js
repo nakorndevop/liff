@@ -38,7 +38,11 @@ liff
       },
     })
       .then((profileResponse) => profileResponse.json())
-      .then((profileJSON) => document.getElementById("pictureUrl").src = profileJSON.pictureUrl);      
+      .then(
+        (profileJSON) => {
+          document.getElementById("pictureUrl").src = profileJSON.pictureUrl;
+        }
+      )    
 
     //document.getElementById("profileImage").src = profileJSON.pictureUrl;
 
