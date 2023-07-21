@@ -31,6 +31,15 @@ liff
       .then((profileResponse) => profileResponse.json())
       .then((profileJSON) => console.log(profileJSON));
 
+    //Get profile
+    fetch('https://api.line.me/v2/profile', {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    })
+      .then((profileResponse) => profileResponse.json())
+      .then((profileJSON) => document.getElementById("profileImage").src = profileJSON.pictureUrl);      
+
     //document.getElementById("profileImage").src = profileJSON.pictureUrl;
 
     /*
