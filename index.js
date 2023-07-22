@@ -22,65 +22,16 @@ liff
       .then((authenResponse) => authenResponse.json())
       .then((authenJSON) => console.log(authenJSON));
 
-    //Get profile
+    //Get profile from Line server
     fetch('https://api.line.me/v2/profile', {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     })
       .then((profileResponse) => profileResponse.json())
-      .then((profileJSON) => console.log(profileJSON));
-
-    //Get profile
-    fetch('https://api.line.me/v2/profile', {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    })
-      .then((profileResponse) => profileResponse.json())
-      .then(
-        (profileJSON) => {
-          document.getElementById("profile").innerHTML = profileJSON;
-        }  
-      )
-
-    /*
-    profile = document.getElementById('profile').innerHTML;
-    console.log(profile);
-    */
-    
-    /*
-    document.getElementById('displayName').innerHTML = profile.displayName;
-    document.getElementById('pictureUrl').innerHTML = profile.pictureUrl;
-    document.getElementById("profileImage").src = profile.pictureUrl;
-    */
-
-    //document.getElementById("profileImage").src = profileJSON.pictureUrl;
-
-    /*
-    document.getElementById('app').innerHTML =
-      '' +
-      'getLanguage: ' +
-      lang +
-      '<br>' +
-      'getVersion: ' +
-      ver +
-      '<br>' +
-      'isInClient: ' +
-      cli +
-      '<br>' +
-      'isLoggedIn: ' +
-      ver +
-      '<br>' +
-      'isLoggedIn: ' +
-      login +
-      '<br>' +
-      'getOS: ' +
-      os +
-      '<br>' +
-      'getLineVersion: ' +
-      line_ver;
-
-    document.getElementById('profile').innerHTML = 'accessToken: ' + accessToken;
-    */
+      .then((profileJSON) => {
+        document.getElementById('pictureUrl').src = profileJSON.pictureUrl;
+        document.getElementById('displayName').innerHTML = profileJSON.displayName;
+        document.getElementById('userId').innerHTML = profileJSON.userId;
+      });
   });
