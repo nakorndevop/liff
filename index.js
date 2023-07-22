@@ -4,18 +4,14 @@ liff
     withLoginOnExternalBrowser: true, // Enable automatic login process
   })
   .then(() => {
-    lang = liff.getLanguage();
-    ver = liff.getVersion();
-    cli = liff.isInClient();
-    login = liff.isLoggedIn();
-    os = liff.getOS();
-    line_ver = liff.getLineVersion();
-
+    getLanguage = liff.getLanguage();
+    getVersion = liff.getVersion();
+    isInClient = liff.isInClient();
+    isLoggedIn = liff.isLoggedIn();
+    getOS = liff.getOS();
+    getLineVersion = liff.getLineVersion();
     const context = liff.getContext();
-    console.log(context);
-
     const accessToken = liff.getAccessToken();
-    console.log(accessToken);
 
     // clientID must same as LINE Login Channel ID and expires_in > 0
     fetch('https://api.line.me/oauth2/v2.1/verify?access_token=' + accessToken)
@@ -31,7 +27,16 @@ liff
       .then((profileResponse) => profileResponse.json())
       .then((profileJSON) => {
         document.getElementById('pictureUrl').src = profileJSON.pictureUrl;
-        document.getElementById('displayName').innerHTML = profileJSON.displayName;
-        document.getElementById('userId').innerHTML = profileJSON.userId;
+        document.getElementById('displayName').innerHTML = 'displayName: ' + profileJSON.displayName;
+        document.getElementById('userId').innerHTML = 'userId: ' + profileJSON.userId;
       });
+
+    document.getElementById('getLanguage').innerHTML = 'getLanguage: ' + getLanguage;
+    document.getElementById('getVersion').innerHTML = 'getVersion: ' + getVersion;
+    document.getElementById('isInClient').innerHTML = 'isInClient: ' + isInClient;
+    document.getElementById('isLoggedIn').innerHTML = 'isLoggedIn: ' + isLoggedIn;
+    document.getElementById('getOS').innerHTML = 'getOS: ' + getOS;
+    document.getElementById('getLineVersion').innerHTML = 'getLineVersion: ' + getLineVersion;
+    document.getElementById('context').innerHTML = 'context: ' + JSON.stringify(context);
+    document.getElementById('accessToken').innerHTML = 'accessToken: ' + accessToken;
   });
