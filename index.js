@@ -40,9 +40,20 @@ liff
       .then((profileResponse) => profileResponse.json())
       .then(
         (profileJSON) => {
-          document.getElementById("pictureUrl").src = profileJSON.pictureUrl;
+          document.getElementById("profile").innerHTML = profileJSON;
         }  
       )
+
+    /*
+    profile = document.getElementById('profile').innerHTML;
+    console.log(profile);
+    */
+    
+    /*
+    document.getElementById('displayName').innerHTML = profile.displayName;
+    document.getElementById('pictureUrl').innerHTML = profile.pictureUrl;
+    document.getElementById("profileImage").src = profile.pictureUrl;
+    */
 
     //document.getElementById("profileImage").src = profileJSON.pictureUrl;
 
