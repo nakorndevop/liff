@@ -39,4 +39,5 @@ liff
     document.getElementById('getLineVersion').innerHTML = 'getLineVersion: ' + getLineVersion;
     document.getElementById('context').innerHTML = 'context: ' + JSON.stringify(context);
     document.getElementById('accessToken').innerHTML = 'accessToken: ' + accessToken;
+
   });
